@@ -1,0 +1,81 @@
+$grey: rgb(177, 186, 186);
+
+@mixin mid-center-flex(
+  $justify-content: center,
+  $align-items: center,
+  $flex-direction: row
+) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+  @content;
+}
+
+@mixin background-image($url, $height: 700px) {
+  height: $height;
+  position: relative;
+  background-image: url("../../images/#{url}");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@mixin background-position($color: $grey) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  padding: 10px;
+  font-size: 1.25em;
+  letter-spacing: 8px;
+  opacity: 0.8;
+  color: $color;
+}
+
+@mixin on-hover(
+  $transition: all 0.2s ease-out,
+  $transform: null,
+  $background-color: null,
+  $color: null
+) {
+  transition: $transition;
+
+  &:hover {
+    @if $background-color != null {
+      background-color: $background-color;
+    }
+    @if $color != null {
+      color: $color;
+    }
+    @if $transform != null {
+      transform: $transform;
+    }
+    transition: $transition;
+
+    @content;
+  }
+}
+
+html {
+  body {
+    margin: 0;
+    font-family: fantasy, "sans-serif";
+    color: #777;
+    font-size: 15px;
+    line-height: 1.8;
+    scroll-behavior: smooth;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h3 {
+      font-weight: 600;
+      margin: 10px;
+    }
+  }
+}

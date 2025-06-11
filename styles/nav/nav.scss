@@ -1,0 +1,40 @@
+header {
+  @include mid-center-flex(space-between);
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+
+  .nav-label,
+  .nav-search {
+    display: inline-block;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+  }
+
+  .nav-label {
+    // @include on-hover(
+    //   $background-color: #333,
+    //   $color: rgb(161, 161, 161),
+    //   $transition: all 0.3s ease-in
+    // );
+    @include on-hover {
+      background-color: #333;
+      color: rgb(161, 161, 161);
+      transition: all 0.3s ease-in;
+      border: 5px;
+    }
+  }
+
+  .nav-search {
+    i {
+      transition: 0.3s ease-out;
+
+      &:hover {
+        transform: scale(1.4);
+        transition: 0.3s ease-in;
+      }
+    }
+  }
+}
